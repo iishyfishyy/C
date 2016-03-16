@@ -1,0 +1,19 @@
+#!/bin/bash
+
+typeset -i number=$(cat storage) #typeset -i reads number as integer
+typeset -i adder=8
+
+num=$(($number + $adder)) #add 8 to number we read
+
+if [ "$num" -ge 100 ]; then #check if the sum is greater than or equal to 100
+	printf "From producer: now I will take rest" 
+	exit 0 #if it is, exit
+else
+	echo -n `echo $num > storage` #if not then overwrite the sum back to file
+	if [ -e "consumer" ]; then #check if consumer.c is compiled
+		echo -n `./consumer` #if it is, run the compiled binary
+	else
+		echo -n `cc -o consumer consumer.c && ./consumer` #if not, first compile then run the compiled binary
+	fi
+	exit 0 #exit
+fi

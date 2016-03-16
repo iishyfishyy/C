@@ -1,0 +1,2 @@
+Insert a number between 5 and 90 in storage. Run either consumer or producer to start program. Producer checks if the number, plus eight, is greater than 100 or not, and if it is, it executes consumer. Consumer decreases the number in storage by 3 and then executes producer. 
+
