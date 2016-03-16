@@ -1,0 +1,3 @@
+five_players.c plays with 5 inbuilt players.
+
+n_players.c takes an integer command line argument for the number of players.
